@@ -26,8 +26,8 @@ class KalkulatorPage2 extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-          Container(margin: const EdgeInsets.only(top: 16.0), child: MyTextfield(keyboardType: const TextInputType.numberWithOptions(decimal: true),myhint: 'Masukkan angka pertama', txtcontroller: txtangka1, cornerRadius: 10, isObscure: false)),
-          Container(margin: const EdgeInsets.only(top: 15.0), child: MyTextfield(keyboardType: const TextInputType.numberWithOptions(decimal: true), myhint: 'Masukkan angka kedua', txtcontroller: txtangka2, cornerRadius: 10, isObscure: false)),
+          Container(margin: const EdgeInsets.only(top: 16.0), child: MyTextfield(keyboardType: const TextInputType.numberWithOptions(decimal: true),  inputFormatters: [ FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*'))],myhint: 'Masukkan angka pertama', txtcontroller: txtangka1, cornerRadius: 10, isObscure: false)),
+          Container(margin: const EdgeInsets.only(top: 15.0), child: MyTextfield(keyboardType: const TextInputType.numberWithOptions(decimal: true), inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*'))], myhint: 'Masukkan angka kedua', txtcontroller: txtangka2, cornerRadius: 10, isObscure: false)),
 
        Container(
           margin: const EdgeInsets.only(top: 16.0),
