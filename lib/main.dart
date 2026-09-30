@@ -5,6 +5,7 @@ import 'login.clone.dart';
 import 'kalkulator_page.dart';
 import 'package:get/get.dart';
 import 'pages/kalkulator_page.dart';
+import 'routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,11 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home:  KalkulatorPage2(),
+      title: 'Belajar Fultter PPLG 3',
+      initialRoute: Routes.registration,
+      getPages: Routes.pages,
     );
   }
 }
