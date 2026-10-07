@@ -60,6 +60,12 @@ flutter:
 
   assets:
     - assets/line.webp
+    - assets/samsungs22ultra.jpg
+    - assets/samsungs23ultra.jpg
+    - assets/iphone14pro.jpg
+    - assets/iphone15pro.jpg
+    - assets/xiaomi13pro.jpg
+    - assets/xiaomy13pro.jpg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -5,6 +5,7 @@ import 'package:proyekpertama/controller/confirm_registation_controller.dart';
 class ConfirmRegistationPage extends StatelessWidget {
   const ConfirmRegistationPage({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     // Inisialisasi controller

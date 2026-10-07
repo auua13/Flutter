@@ -7,12 +7,12 @@ class LoginCloneImage1 extends StatelessWidget {
   final double height;
   final BoxFit fit;
 
-  const LoginCloneImage1({
+  const LoginCloneImage1(String imageProduk, int i, {
     super.key,
     required this.imagePath,
     required this.width,
     required this.height,
-    required this.fit,
+    required this.fit, required double,
   });
 
   @override

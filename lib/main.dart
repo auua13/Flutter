@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Belajar Fultter PPLG 3',
-      initialRoute: Routes.registration,
+      initialRoute: Routes.listProduk,
       getPages: Routes.pages,
     );
   }
