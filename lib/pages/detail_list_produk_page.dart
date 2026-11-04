@@ -14,8 +14,8 @@ class DetailListProdukPage extends StatelessWidget {
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
         title: const Text('Detail Produk', style: TextStyle(fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.deepPurple,
-        foregroundColor: Colors.white,
+         backgroundColor: Colors.green[500],
+          foregroundColor: Colors.white,
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -62,7 +62,7 @@ class DetailListProdukPage extends StatelessWidget {
             ElevatedButton(
               onPressed: Get.back,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.deepPurple,
+                backgroundColor: Colors.green[500],
                 foregroundColor: Colors.white,
                 minimumSize: const Size(double.infinity, 50),
                 elevation: 0,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
-import 'pages/login.clonefix.dart';
+import 'pages/login_clone_fix_page.dart';
 import 'login.clone.dart';
 import 'kalkulator_page.dart';
 import 'package:get/get.dart';
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Belajar Fultter PPLG 3',
-      initialRoute: Routes.mainMenuDrawer,
+      initialRoute: Routes.loginCloneFix,
       getPages: Routes.pages,
     );
   }

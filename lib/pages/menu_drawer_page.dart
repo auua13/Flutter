@@ -17,15 +17,15 @@ class MenuDrawerPage extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
           elevation: 0,
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Colors.green[500],
           foregroundColor: Colors.white,
         ),
         drawer: Drawer(
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              const DrawerHeader(
-                decoration: BoxDecoration(color: Colors.deepPurple),
+               DrawerHeader(
+                decoration: BoxDecoration(color: Colors.green[500]),
                 child: Text(
                   'Menu Header',
                   style: TextStyle(color: Colors.white, fontSize: 24),

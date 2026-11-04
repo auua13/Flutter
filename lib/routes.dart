@@ -6,6 +6,8 @@ import 'package:proyekpertama/pages/menu_drawer_page.dart';
 import 'package:proyekpertama/pages/registration_page.dart';
 import 'package:proyekpertama/pages/list_produk_page.dart';
 import 'package:proyekpertama/pages/detail_list_produk_page.dart';
+import 'package:proyekpertama/pages/login_clone_fix_page.dart';
+import 'package:proyekpertama/login_page.dart';
 
 class Routes {
   //list halaman apk
@@ -15,6 +17,10 @@ class Routes {
   static const String detailListProduk = "/detaillistproduk";
   static const String mainMenu = "/mainmenu";
   static const String mainMenuDrawer = "/mainmenudrawer";
+  static const String loginCloneFix = "/loginclonefix";
+  static const String loginPage = "/loginPage";
+  
+
   
   // dll
 
@@ -26,6 +32,8 @@ class Routes {
     GetPage(name: detailListProduk, page: ()=> DetailListProdukPage()),
     GetPage(name: mainMenu, page: ()=> MainMenuPage()),
     GetPage(name: mainMenuDrawer, page: ()=> MenuDrawerPage()),
+    GetPage(name: loginCloneFix, page: ()=>LoginCloneFixPage()),
+    GetPage(name: loginPage, page: ()=>LoginPage()),
 
     // dll
   ];

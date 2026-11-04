@@ -1,18 +1,18 @@
+
 import 'package:flutter/material.dart';
 
 class LoginCloneImage1 extends StatelessWidget {
-
   final String imagePath;
   final double width;
   final double height;
   final BoxFit fit;
 
-  const LoginCloneImage1(String imageProduk, int i, int o, {
+  const LoginCloneImage1({
     super.key,
     required this.imagePath,
     required this.width,
     required this.height,
-    required this.fit, required double,
+    this.fit = BoxFit.contain,
   });
 
   @override

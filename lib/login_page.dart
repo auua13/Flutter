@@ -3,7 +3,7 @@ import 'components/my_textfield.dart';
 import 'components/my_button.dart';
 
 class LoginPage extends StatefulWidget {
-  const new({super.key});
+   LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
