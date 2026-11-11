@@ -1,8 +1,10 @@
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:proyekpertama/pages/menu_drawer_page.dart';
+import 'package:proyekpertama/routes.dart';
+import 'package:proyekpertama/models/login_model.dart'; 
 
 class LoginCloneFixController extends GetxController {
 
@@ -11,15 +13,15 @@ class LoginCloneFixController extends GetxController {
 
   var isLoading = false.obs;
 
-  //method hit API
-  Future<void> login() async{
-    if(emailController.text.toString().isEmpty || passwordController.text.toString().isEmpty){
-      Get.snackbar("error", "email password nya harus diisi kalau gak, gak bisa login");
-    }else{
+  var loginModel = Rxn<LoginModel>();
 
-      try{
-
-        isLoading.value = true; // sebagai tanda di page nya muncul loading widget
+  Future<void> login() async {
+    if (emailController.text.toString().isEmpty || passwordController.text.toString().isEmpty) {
+      Get.snackbar("Error", "Email dan password harus diisi kalau gak, gak bisa login");
+    } else {
+      
+      try {
+        isLoading.value = true; 
         final url = Uri.parse("https://mediadwi.com/api/latihan/login");
 
         final response = await http.post(url, body: {
@@ -28,14 +30,15 @@ class LoginCloneFixController extends GetxController {
         });
 
         isLoading.value = false;
-        if(response.statusCode == 200){
-          // kita ambil json nya messeage pindah tampilan ke main menu
-          final data = jsonDecode(response.body);
-          if(data['status'] == true){
-            Get.snackbar("berhasil", data['message']);
-            Get.offNamed('/mainmenudrawer');
+
+        if (response.statusCode == 200) {
+          loginModel.value = loginModelFromJson(response.body);
+
+          if (loginModel.value?.status == true) {
+            Get.snackbar("Berhasil", loginModel.value!.message);
+            Get.offNamed(Routes.mainMenuDrawer); 
           } else {
-            Get.snackbar("Gagal", data['message']);
+            Get.snackbar("Gagal", loginModel.value?.message ?? "Login gagal");
           }
 
         } else {
@@ -43,10 +46,9 @@ class LoginCloneFixController extends GetxController {
         }
 
       } catch (e) {
-        Get.snackbar("Error", "Adaa kesalahan: $e");
+        isLoading.value = false;
+        Get.snackbar("Error", "Ada kesalahan: $e");
       }
-      
     }
   }
-
 }

@@ -1,6 +1,7 @@
 
 import 'package:get/get.dart';
 import 'package:proyekpertama/pages/confirm_registation_page.dart';
+import 'package:proyekpertama/pages/detail_list_produk_hp_page.dart';
 import 'package:proyekpertama/pages/main_menu_page.dart';
 import 'package:proyekpertama/pages/menu_drawer_page.dart';
 import 'package:proyekpertama/pages/registration_page.dart';
@@ -15,6 +16,7 @@ class Routes {
   static const String confirmRegistration = "/confirmregistration";
   static const String listProduk = "/listproduk";
   static const String detailListProduk = "/detaillistproduk";
+  static const String detailListProdukHP = "/detaillistprodukhp";
   static const String mainMenu = "/mainmenu";
   static const String mainMenuDrawer = "/mainmenudrawer";
   static const String loginCloneFix = "/loginclonefix";
@@ -34,6 +36,7 @@ class Routes {
     GetPage(name: mainMenuDrawer, page: ()=> MenuDrawerPage()),
     GetPage(name: loginCloneFix, page: ()=>LoginCloneFixPage()),
     GetPage(name: loginPage, page: ()=>LoginPage()),
+    GetPage(name: detailListProdukHP, page: ()=> DetailListProdukHPPage()),
 
     // dll
   ];
