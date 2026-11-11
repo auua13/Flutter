@@ -24,7 +24,6 @@ class ListProdukHpController extends GetxController {
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
-        // Panggil fungsi parsing sesuai model baru kamu
         final data = produkModelFromJson(response.body);
 
         produkList.assignAll(data.products);

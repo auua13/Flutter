@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:proyekpertama/models/poduk_model.dart';
+import 'package:proyekpertama/Models/poduk_model.dart';
 
 class DetailListProdukController extends GetxController {
   // Implementation for detail list produk controller

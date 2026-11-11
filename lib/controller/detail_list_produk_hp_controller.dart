@@ -1,28 +1,28 @@
 
-import 'package:get/get.dart';
+// import 'package:get/get.dart';
 
-class DetailListProdukHPController extends GetxController {
+// class DetailListProdukHPController extends GetxController {
 
-  String namaProduk = 'Tanpa Nama';
-  String hargaProduk = '\$0';
-  String imageProduk = '';
-  String deskripsiProduk = 'Tidak ada deskripsi.';
-  String reviewProduk = '-';
-  String spesifikasiProduk = '-';
+//   late String namaProduk;
+//   late String hargaProduk;
+//   late String imageProduk;
+//   late String deskripsiProduk;
+//   late String reviewProduk;
+//   late String spesifikasiProduk;
 
-  @override
-  void onInit() {
-    super.onInit();
+//   @override
+//   void onInit() {
+//     super.onInit();
 
-    // Menerima data dari halaman sebelumnya
-    final Map<String, dynamic> data = Get.arguments ?? {};
+//     // Menerima data dari halaman sebelumnya
+//     final arguments = Get.arguments;
 
-    namaProduk = data['namaProduk'] ?? 'Tanpa Nama';
-    hargaProduk = data['hargaProduk'] ?? '\$0';
-    imageProduk = data['imageProduk'] ?? '';
-    deskripsiProduk =
-        data['deskripsiProduk'] ?? 'Tidak ada deskripsi.';
-    reviewProduk = data['reviewProduk'] ?? '-';
-    spesifikasiProduk = data['spesifikasiProduk'] ?? '-';
-  }
-}
+//     namaProduk = arguments['namaProduk'];
+//     hargaProduk = arguments['hargaProduk'];
+//     imageProduk = arguments['imageProduk'];
+//     deskripsiProduk =
+//         arguments['deskripsiProduk'] ;
+//     reviewProduk = arguments['reviewProduk'];
+//     spesifikasiProduk = arguments['spesifikasiProduk'];
+//   }
+// }

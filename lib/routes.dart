@@ -16,7 +16,7 @@ class Routes {
   static const String confirmRegistration = "/confirmregistration";
   static const String listProduk = "/listproduk";
   static const String detailListProduk = "/detaillistproduk";
-  static const String detailListProdukHP = "/detaillistprodukhp";
+  // static const String detailListProdukHP = "/detaillistprodukhp";
   static const String mainMenu = "/mainmenu";
   static const String mainMenuDrawer = "/mainmenudrawer";
   static const String loginCloneFix = "/loginclonefix";
@@ -36,7 +36,7 @@ class Routes {
     GetPage(name: mainMenuDrawer, page: ()=> MenuDrawerPage()),
     GetPage(name: loginCloneFix, page: ()=>LoginCloneFixPage()),
     GetPage(name: loginPage, page: ()=>LoginPage()),
-    GetPage(name: detailListProdukHP, page: ()=> DetailListProdukHPPage()),
+    // GetPage(name: detailListProdukHP, page: ()=> DetailListProdukHPPage()),
 
     // dll
   ];

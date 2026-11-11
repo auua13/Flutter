@@ -1,7 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:proyekpertama/controller/list_produk_hp_controller.dart';
-import 'package:proyekpertama/routes.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -41,6 +41,7 @@ class HomePage extends StatelessWidget {
                     itemCount: controller.produkList.length,
                     itemBuilder: (context, index) {
                       final produk = controller.produkList[index];
+
                       return Container(
                         width: 180,
                         margin: const EdgeInsets.only(right: 12),
@@ -49,123 +50,99 @@ class HomePage extends StatelessWidget {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(12),
-                            onTap: () {
-                              Get.toNamed(
-                                Routes.detailListProdukHP,
-                                arguments: {
-                                  'namaProduk': produk.title,
-                                  'hargaProduk': "\$${produk.price}",
-                                  'imageProduk': produk.thumbnail,
-                                  'deskripsiProduk': produk.description,
-                                  'reviewProduk': "Rating: ${produk.rating}",
-                                  'ratingProduk': produk.rating.toString(),
-                                  'spesifikasiProduk': "Brand: ${produk.brand}\nStock: ${produk.stock}",
-                                },
-                              );
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Stack(
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
-                                        // Karena dari API berupa URL internet, gunakan Image.network
-                                        child: Image.network(
-                                          produk.thumbnail,
-                                          width: double.infinity,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: Image.network(
+                                        produk.thumbnail,
+                                        width: double.infinity,
+                                        height: 130,
+                                        fit: BoxFit.cover,
+                                        errorBuilder:
+                                            (context, error, stackTrace) =>
+                                                const SizedBox(
                                           height: 130,
-                                          fit: BoxFit.cover,
-                                          errorBuilder: (context, error, stackTrace) =>
-                                              const SizedBox(
-                                            height: 130,
-                                            child: Center(child: Icon(Icons.error)),
+                                          child: Center(
+                                            child: Icon(Icons.error),
                                           ),
                                         ),
                                       ),
-                                      Positioned(
-                                        top: 4,
-                                        right: 4,
-                                        child: Container(
-                                          decoration: const BoxDecoration(
-                                            color: Colors.white,
-                                            shape: BoxShape.circle,
+                                    ),
+                                    Positioned(
+                                      top: 4,
+                                      right: 4,
+                                      child: Container(
+                                        decoration: const BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.circle,
+                                        ),
+                                        child: PopupMenuButton<String>(
+                                          icon: const Icon(
+                                            Icons.more_vert,
+                                            size: 18,
+                                            color: Colors.black87,
                                           ),
-                                          child: PopupMenuButton<String>(
-                                            icon: const Icon(Icons.more_vert, size: 18, color: Colors.black87),
-                                            onSelected: (value) {
-                                              if (value == 'detail') {
-                                                Get.toNamed(
-                                                  Routes.detailListProdukHP,
-                                                  arguments: {
-                                                    'namaProduk': produk.title,
-                                                    'hargaProduk': "\$${produk.price}",
-                                                    'imageProduk': produk.thumbnail,
-                                                    'deskripsiProduk': produk.description,
-                                                    'reviewProduk': "Rating: ${produk.rating}",
-                                                    'ratingProduk': produk.rating.toString(),
-                                                    'spesifikasiProduk': "Brand: ${produk.brand}\nStock: ${produk.stock}",
-                                                  },
-                                                );
-                                              } else if (value == 'hapus') {
-                                                controller.produkList.removeAt(index);
-                                                Get.snackbar(
-                                                  'Berhasil', 
-                                                  '${produk.title} dihapus',
-                                                  snackPosition: SnackPosition.BOTTOM,
-                                                );
-                                              }
-                                            },
-                                            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                                              const PopupMenuItem<String>(
-                                                value: 'detail',
-                                                child: Row(
-                                                  children: [
-                                                    SizedBox(width: 8),
-                                                    Text('Detail'),
-                                                  ],
-                                                ),
+                                          onSelected: (value) {
+                                            if (value == 'hapus') {
+                                              controller.produkList
+                                                  .removeAt(index);
+
+                                              Get.snackbar(
+                                                'Berhasil',
+                                                '${produk.title} dihapus',
+                                                snackPosition:
+                                                    SnackPosition.BOTTOM,
+                                              );
+                                            }
+                                          },
+                                          itemBuilder: (BuildContext context) =>
+                                              <PopupMenuEntry<String>>[
+                                            const PopupMenuItem<String>(
+                                              value: 'hapus',
+                                              child: Row(
+                                                children: [
+                                                  SizedBox(width: 8),
+                                                  Text(
+                                                    'Hapus',
+                                                    style: TextStyle(
+                                                      color: Colors.red,
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                              const PopupMenuItem<String>(
-                                                value: 'hapus',
-                                                child: Row(
-                                                  children: [
-                                                    SizedBox(width: 8),
-                                                    Text('Hapus', style: TextStyle(color: Colors.red)),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    produk.title,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
                                     ),
+                                  ],
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  produk.title,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 14,
                                   ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    "\$${produk.price}",
-                                    style: const TextStyle(
-                                      color: Color.fromARGB(255, 101, 101, 101),
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 13,
-                                    ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  "\$${produk.price}",
+                                  style: const TextStyle(
+                                    color: Color.fromARGB(255, 101, 101, 101),
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 13,
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
